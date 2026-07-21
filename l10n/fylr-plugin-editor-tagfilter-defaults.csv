@@ -1,0 +1,24 @@
+key,de-DE,R,en-US,R,da-DK,R,fi-FI,R,sv-SE,R,fr-FR,R,it-IT,R,es-ES,R,cs-CZ,R,pl-PL,R,ru-RU,R,uz-UZ,R
+editor.tagfilter.defaults.replacement.button|text,Ersetzungen anzeigen,FALSE,Show replacement,FALSE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE
+server.config.choice.system.editor-tagfilter-defaults.operation.insert,Neue,FALSE,Insert,FALSE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE
+server.config.choice.system.editor-tagfilter-defaults.operation.update,Aktualisieren,FALSE,Update,FALSE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE
+server.config.group.system.editor.introduction,Definition vor Textvorbelegungen in Feldern beim Erstellen oder Aktualisieren von Datensätzen.,FALSE,Definition of text presets in fields when creating or updating records.,FALSE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE
+server.config.group.system.editor.title,Editor,FALSE,Editor,FALSE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE
+server.config.group.system.plugin_fylr-plugin-editor-tagfilter-defaults.title,Tag-Filter-abhängige Voreinstellungen,FALSE,Tag filter dependent presets,FALSE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE
+server.config.name.system.editor-tagfilter-defaults,Tag-Filter-abhängige Voreinstellungen,FALSE,Tag filter dependent presets,FALSE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE
+server.config.option.system.editor-tagfilter-defaults.type.preset,Vorbelegung,FALSE,Preset,FALSE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE
+server.config.parameter.system.editor-tagfilter-defaults.column_id.label,Feld,FALSE,Field,FALSE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE
+server.config.parameter.system.editor-tagfilter-defaults.default.label,Voreinstellungen,FALSE,Default,FALSE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE
+server.config.parameter.system.editor-tagfilter-defaults.filters.default.label,Vorbelegung,FALSE,Default,FALSE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE
+server.config.parameter.system.editor-tagfilter-defaults.filters.label,Konfiguration,FALSE,Configuration,FALSE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE
+server.config.parameter.system.editor-tagfilter-defaults.filters.mask_id.label,Maske,FALSE,Masks,FALSE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE
+server.config.parameter.system.editor-tagfilter-defaults.filters.operation.label,Aktion,FALSE,Action,FALSE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE
+server.config.parameter.system.editor-tagfilter-defaults.filters.tagfilter.label,Tag-Filter,FALSE,Tag filter,FALSE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE
+server.config.parameter.system.editor-tagfilter-defaults.mask_id.label,Maske,FALSE,Masks,FALSE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE
+server.config.parameter.system.editor-tagfilter-defaults.operation.label,Operation,FALSE,Operation,FALSE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE
+server.config.parameter.system.editor-tagfilter-defaults.tagfilter.label,Tag-Filter,FALSE,Tag filter,FALSE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE
+server.config.parameter.system.editor-tagfilter-defaults.type.label,Typ,FALSE,Type,FALSE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE
+server.config.parameter.system.editor-tagfilter-defaults.value.label,Wert,FALSE,Value,FALSE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE
+server.config.parameter.system.editor-tagfilter-defaults.filters.pool_id.label,Pools Filter,FALSE,Pools Filter,FALSE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE
+server.config.parameter.system.editor-tagfilter-defaults.date.replacement.today|text,Heute,FALSE,Today,FALSE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE
+server.config.parameter.system.editor-tagfilter-defaults.date.replacement.today|tooltip,"Wenn aktiviert, wird das heutige Datum verwendet.",FALSE,"If enabled, the current date will be set.",FALSE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE,,TRUE
