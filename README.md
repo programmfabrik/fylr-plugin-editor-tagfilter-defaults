@@ -19,10 +19,12 @@ A rule has these settings:
 Each entry of the **Default** list sets one field:
 
 * **Type**: currently only "Preset" is supported.
-* **Field**: the field to pre-fill. Text fields, number fields, boolean fields and date fields are supported. Date range fields are not supported.
+* **Field**: the field to pre-fill. Text fields, number fields, boolean fields, date fields and links to other records (for example list entries) are supported. Date range fields, hierarchy parents and links that can point to more than one object type are not supported. Links need fylr 6.36 or newer.
 * **Value**: the value to set.
 
 The value of a text field may contain placeholders such as `%_standard%`. The button next to the mask selection lists the placeholders available for the selected mask.
+
+For links the value is picked like in the editor. If the linked record is deleted later, the rule does nothing for that field.
 
 For date fields the value can be set to "Today" instead of a fixed date. The current date is then used every time the rule applies.
 

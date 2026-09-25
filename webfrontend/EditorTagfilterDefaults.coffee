@@ -5,6 +5,12 @@
 ###
 
 class EditorTagfilterDefaults extends CUI.Element
+	# Linked objects need LinkedObject.updateEditorInputValue from the core.
+	@isSupportedLinkedObject: (field) ->
+		if not ez5.version("6.36")
+			return false
+		return field instanceof LinkedObject and field not instanceof TreeColumn and field not instanceof LinkedObjecttype
+
 	readOpts: ->
 		super()
 		BaseConfig.registerPlugin(new BaseConfigEditorTagfilterDefaults())
@@ -142,6 +148,10 @@ class EditorTagfilterDefaults extends CUI.Element
 							console.error("EditorTagfilterDefaults: Skipping unknown field: " + rule.column_id)
 							continue
 
+						if field instanceof LinkedObject and not EditorTagfilterDefaults.isSupportedLinkedObject(field)
+							console.error("EditorTagfilterDefaults: Skipping unsupported linked object field: " + rule.column_id)
+							continue
+
 						if not filtersByField[field.id()]
 							filtersByField[field.id()] =
 								field: field
@@ -204,6 +214,8 @@ class BaseConfigEditorTagfilterDefaults extends BaseConfigPlugin
 				if field instanceof DateColumn and field not instanceof DateRangeColumn
 					return true
 				if field instanceof BooleanColumn
+					return true
+				if EditorTagfilterDefaults.isSupportedLinkedObject(field)
 					return true
 				return false
 
@@ -373,6 +385,9 @@ class BaseConfigEditorTagfilterDefaults extends BaseConfigPlugin
 
 							dataField = findField()
 
+							if data.value?._global_object_id and dataField not instanceof LinkedObject
+								delete data.value
+
 							if dataField instanceof LocaTextColumn
 								if not CUI.isPlainObject(data.value)
 									data.value = {}
@@ -420,6 +435,25 @@ class BaseConfigEditorTagfilterDefaults extends BaseConfigPlugin
 											]
 										return hl
 								return proxyInput.start()
+							else if dataField instanceof LinkedObject
+								if not data.value?._global_object_id
+									delete data.value
+
+								linkedData = {}
+								linkedData[dataField.name()] = CUI.util.copyObject(data.value, true)
+								linkedInput = dataField.renderEditorInput(linkedData, linkedData)
+								CUI.Events.listen
+									type: "editor-changed"
+									node: linkedInput
+									call: (ev) =>
+										ev.stopPropagation()
+										data.value = dataField.getSaveData(linkedData)
+										if not data.value
+											delete data.value
+										CUI.Events.trigger
+											node: linkedInput
+											type: "data-changed"
+								return linkedInput
 							else if dataField instanceof BooleanColumn
 								if not CUI.util.isBoolean(data.value)
 									data.value = true
