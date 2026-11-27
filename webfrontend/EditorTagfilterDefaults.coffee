@@ -5,9 +5,9 @@
 ###
 
 class EditorTagfilterDefaults extends CUI.Element
-	# Linked objects need LinkedObject.updateEditorInputValue from the core.
+	# Checked by method, not by version: a 6.36 dev build can come without it.
 	@isSupportedLinkedObject: (field) ->
-		if not ez5.version("6.36")
+		if not LinkedObject::updateEditorInputValue
 			return false
 		return field instanceof LinkedObject and field not instanceof TreeColumn and field not instanceof LinkedObjecttype
 
@@ -440,20 +440,40 @@ class BaseConfigEditorTagfilterDefaults extends BaseConfigPlugin
 									delete data.value
 
 								linkedData = {}
-								linkedData[dataField.name()] = CUI.util.copyObject(data.value, true)
-								linkedInput = dataField.renderEditorInput(linkedData, linkedData)
-								CUI.Events.listen
-									type: "editor-changed"
-									node: linkedInput
-									call: (ev) =>
-										ev.stopPropagation()
-										data.value = dataField.getSaveData(linkedData)
-										if not data.value
-											delete data.value
-										CUI.Events.trigger
-											node: linkedInput
-											type: "data-changed"
-								return linkedInput
+								container = CUI.dom.div()
+
+								renderLinkedInput = =>
+									linkedInput = dataField.renderEditorInput(linkedData, linkedData)
+									# Fields shown as a dropdown give a CUI.Select that is not started yet.
+									if linkedInput instanceof CUI.DataField
+										linkedInput.start()
+									CUI.Events.listen
+										type: "editor-changed"
+										node: linkedInput
+										call: (ev) =>
+											ev.stopPropagation()
+											data.value = dataField.getSaveData(linkedData)
+											if not data.value
+												delete data.value
+											CUI.Events.trigger
+												node: container
+												type: "data-changed"
+									CUI.dom.replace(container, linkedInput)
+									return
+
+								if not data.value
+									renderLinkedInput()
+									return container
+
+								# The saved value only has the ids, the dropdown needs the whole record to show it.
+								ResultObject.loadFromData(CUI.util.copyObject(data.value, true), "standard", false)
+								.done (resultObject) =>
+									linkedData[dataField.name()] = resultObject.getData()
+								.fail =>
+									linkedData[dataField.name()] = CUI.util.copyObject(data.value, true)
+								.always =>
+									renderLinkedInput()
+								return container
 							else if dataField instanceof BooleanColumn
 								if not CUI.util.isBoolean(data.value)
 									data.value = true
